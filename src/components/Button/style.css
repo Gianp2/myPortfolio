@@ -1,0 +1,44 @@
+.button {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  background-color: #4e46e59f; 
+  color: rgba(0, 0, 0, 0.778);
+  padding: 0.75rem 2rem; /* 12px 32px */
+  border-radius: 0.5rem; /* 8px */
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover,
+.button:focus-visible {
+  background-color: #38ca8b93; /* indigo-700 */
+  box-shadow: 0 4px 12px rgba(78, 70, 229, 0.161);
+  transform: scale(1.05);
+  outline-offset: 2px;
+  outline: none; /* Eliminamos el outline azul predeterminado */
+}
+
+.button:focus {
+  outline: none; /* para navegadores que no soportan focus-visible */
+}
+
+.button:active {
+  background-color: #3830a300; /* indigo-800 */
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
+/* Para íconos dentro del botón, como el SVG */
+.button svg {
+  margin-left: 0.5rem; /* espacio a la derecha del texto */
+  fill: currentColor;
+  pointer-events: none; /* evita que el icono capture clicks */
+}

@@ -1,0 +1,33 @@
+@import url('styles/satoshi.css');
+@import url('styles/francy.css');
+@import url('styles/reset.css');
+@import url('styles/variables.css');
+@import url('styles/utilities.css');
+@import url('styles/global.css');
+
+:root {
+    font-family: 'Satoshi';
+    line-height: 1.5;
+    font-weight: 500;
+    color: var(--color-base);
+    font-size: 14px;
+    color-scheme: light;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    :target {
+        scroll-margin-top: var(--nav-height);
+    }
+}
+
+html {
+    background-color: white;
+}
+
+@media (min-width: 801px) {
+    :root {
+        font-size: 18px;
+    }
+}

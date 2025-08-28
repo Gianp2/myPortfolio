@@ -1,0 +1,44 @@
+.accordion.card {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer; /* Indica que es clickeable */
+  user-select: none; /* Evita selección accidental */
+  padding: 8px 12px;
+  transition: background-color 0.3s ease;
+}
+
+.accordion.card:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Sutil cambio al pasar el mouse */
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+  display: inline-block;
+  will-change: transform;
+}
+
+.chevron.open {
+  transform: rotate(180deg);
+}
+
+/* Contenedor de los hijos: usamos max-height para mejor animación */
+.children {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  display: block; /* evita problemas con grid y animaciones */
+}
+
+.children.open {
+  max-height: 1000px; /* un valor alto para que alcance el contenido */
+}
+
+/* Opcional: añade algo de margen interna para los hijos */
+.children > * {
+  padding: 8px 0;
+  overflow: hidden;
+}

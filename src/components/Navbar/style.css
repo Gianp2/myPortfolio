@@ -1,0 +1,197 @@
+/* ==========================
+   HEADER PRINCIPAL
+========================== */
+header {
+  position: sticky;
+  inset-block-start: 0; 
+  inline-size: 100%;
+  background-color: rgba(246, 246, 246, 0);
+  backdrop-filter: saturate(180%) blur(10px);
+  z-index: 11;
+  display: flex;
+  justify-content: center;
+  block-size: var(--nav-height);
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Contenedor layout */
+.layout {
+  max-inline-size: 1200px;
+  inline-size: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* ==========================
+   NOMBRE
+========================== */
+.my-name {
+  font-size: 25px;
+  font-weight: 500;
+  user-select: none;
+  color: #000000b0;
+  transition: color 0.3s ease;
+}
+
+/* ==========================
+   NAV LINKS (desktop)
+========================== */
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cv-cat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 28px;
+  cursor: pointer;
+  user-select: none;
+  background-color: #4e46e59f;
+  color: #000;
+  border-radius: 15px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.cv-cat:hover {
+  background-color: #12db2668;
+}
+
+.cv-cat img {
+  inline-size: 16px;
+  block-size: 16px;
+}
+
+/* ==========================
+   BOTÓN HAMBURGUESA
+========================== */
+.hamburger-menu {
+  display: none;
+  position: relative;
+  inline-size: 30px;
+  block-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.hamburger-menu span,
+.hamburger-menu span::before,
+.hamburger-menu span::after {
+  content: '';
+  display: block;
+  background-color: #000;
+  block-size: 2px;
+  inline-size: 100%;
+  border-radius: 2px;
+  position: absolute;
+  inset-inline-start: 0;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu span {
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-menu span::before {
+  inset-block-start: -8px;
+}
+
+.hamburger-menu span::after {
+  inset-block-start: 8px;
+}
+
+/* ABIERTO */
+.hamburger-menu.open span {
+  background-color: transparent;
+}
+
+.hamburger-menu.open span::before {
+  transform: rotate(45deg) translate(5px, 5px);
+  inset-block-start: 0;
+}
+
+.hamburger-menu.open span::after {
+  transform: rotate(-45deg) translate(5px, -5px);
+  inset-block-start: 0;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+@media (max-width: 800px) {
+
+  /* Nombre más pequeño en móvil */
+  .my-name {
+    font-size: 24px;
+  }
+
+  /* Overlay */
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 14;
+  }
+
+  .nav-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Menú lateral */
+  nav {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-end: -100%; /* ⬅️ ahora se va todo */
+    inline-size: 70%;
+    block-size: 100vh;
+    background: #fffffff2;
+    box-shadow: -10px 0 20px rgba(0,0,0,0.2);
+    padding-block-start: 15vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: right 0.3s ease-in-out;
+    z-index: 15;
+    overflow-y: auto;
+  }
+
+  nav.open {
+    inset-inline-end: 0; /* ⬅️ aparece */
+  }
+
+
+  nav ul {
+    flex-direction: column;
+    gap: 30px;
+    padding-inline-start: 1rem;
+  }
+
+  .cv-cat {
+    margin-block-start: auto;
+    margin-block-end: 2rem;
+  }
+
+  /* Mostrar hamburguesa */
+  .hamburger-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
